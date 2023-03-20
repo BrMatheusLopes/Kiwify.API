@@ -16,18 +16,6 @@ namespace Kiwify.Core.Models
         [JsonPropertyName("payment_method")]
         public string PaymentMethod { get; set; }
 
-        [JsonPropertyName("created_at")]
-        public DateTime CreatedAt { get; set; }
-
-        [JsonPropertyName("updated_at")]
-        public DateTime UpdatedAt { get; set; }
-
-        /// <summary>
-        /// Data da aprovação do pagamento
-        /// </summary>
-        [JsonPropertyName("approved_date")]
-        public DateTime ApprovedDate { get; set; }
-
         [JsonPropertyName("Product")]
         public Product Product { get; set; }
 
@@ -91,11 +79,11 @@ namespace Kiwify.Core.Models
         [JsonPropertyName("id")]
         public string? Id { get; set; }
 
-        [JsonPropertyName("start_date")]
-        public DateTime StartDate { get; set; }
+        //[JsonPropertyName("start_date")]
+        //public DateTime StartDate { get; set; }
 
-        [JsonPropertyName("next_payment")]
-        public DateTime NextPayment { get; set; }
+        //[JsonPropertyName("next_payment")]
+        //public DateTime NextPayment { get; set; }
 
         [JsonPropertyName("status")]
         public string? Status { get; set; }

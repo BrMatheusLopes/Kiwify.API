@@ -21,23 +21,23 @@ namespace Kiwify.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] string payload, [FromQuery(Name = "signature")] string signature)
+        public async Task<IActionResult> Post([FromBody] object payload, [FromQuery(Name = "signature")] string signature)
         {
-            if (string.IsNullOrEmpty(payload) || string.IsNullOrEmpty(signature))
+            if (payload == null || string.IsNullOrEmpty(signature))
                 return BadRequest(new { error = "Object body cannot be null or empty" });
 
-            if (!IsValidSignature(payload, signature))
+            if (!IsValidSignature(payload.ToString()!, signature))
                 return BadRequest(new { error = "Incorrect signature" });
 
-            var order = JsonSerializer.Deserialize<KiwifyOrder>(payload);
+            var order = JsonSerializer.Deserialize<KiwifyOrder>(payload.ToString()!);
             if (order == null)
                 return BadRequest(new { error = "Invalid json format" });
 
-            _kiwifyPayment.Handler(order);
+            await _kiwifyPayment.Handler(order);
             return Ok();
         }
 
-        public bool IsValidSignature(string orderJson, string signature)
+        private bool IsValidSignature(string orderJson, string signature)
         {
             var secretToken = Environment.GetEnvironmentVariable("SecretToken");
             var kiwifyConfig = _configuration.GetSection("KiwifyConfiguration").Get<KiwifyConfiguration>();

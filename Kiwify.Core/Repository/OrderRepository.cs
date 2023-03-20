@@ -48,7 +48,7 @@ namespace Kiwify.Core.Repository
 
         public async Task<Order?> UpdateOrderAsync(Order order)
         {
-            var result = await GetOrderByOrderIdAndEmail(order.BuyerEmail, order.OrderId);
+            var result = await GetOrderByOrderIdAndEmail(order.OrderId, order.BuyerEmail);
             if (result == null) return null;
 
             _context.Entry(result).CurrentValues.SetValues(order);

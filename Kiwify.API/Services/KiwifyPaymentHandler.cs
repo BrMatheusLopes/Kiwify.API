@@ -8,7 +8,7 @@ namespace Kiwify.API.Services
 {
     public abstract class PaymentHandler<T>
     {
-        public abstract void Handler(T order);
+        public abstract Task Handler(T order);
     }
 
     public class KiwifyPaymentHandler : PaymentHandler<KiwifyOrder>
@@ -20,7 +20,7 @@ namespace Kiwify.API.Services
             _repository = repository;
         }
 
-        public override async void Handler(KiwifyOrder order)
+        public override async Task Handler(KiwifyOrder order)
         {
             try
             {
