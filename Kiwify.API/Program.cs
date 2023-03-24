@@ -39,7 +39,6 @@ if (builder.Environment.IsDevelopment())
     builder.Services.AddSwaggerGen();
 }
 
-builder.Host.UseSystemd();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

@@ -7,9 +7,11 @@ namespace Kiwify.API.Controllers
     public class HealthController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index([FromQuery(Name = "echo")] string? echo = null)
         {
-            return NoContent();
+            return string.IsNullOrEmpty(echo) 
+                ? NoContent() 
+                : Ok(new { Response = echo });
         }
     }
 }
