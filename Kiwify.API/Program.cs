@@ -16,9 +16,10 @@ if (servicePort != null)
 }
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Is(isProduction ? LogEventLevel.Debug : LogEventLevel.Debug)
+    .MinimumLevel.Is(isProduction ? LogEventLevel.Information : LogEventLevel.Debug)
     .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
     .MinimumLevel.Override("System.Net.Http.HttpClient", LogEventLevel.Warning)
+    .MinimumLevel.Override("Microsoft.Extensions.Http.DefaultHttpClientFactory", LogEventLevel.Information)
     .WriteTo.File(path: $"logs{Path.AltDirectorySeparatorChar}log-.txt",
                   rollingInterval: RollingInterval.Day,
                   flushToDiskInterval: TimeSpan.FromDays(14),
@@ -39,6 +40,7 @@ if (builder.Environment.IsDevelopment())
     builder.Services.AddSwaggerGen();
 }
 
+builder.Host.UseSerilog();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

@@ -75,14 +75,14 @@ namespace Kiwify.API.Services
                 };
 
                 var createdOrder = await _repository.CreateOrderAsync(newOrder);
-                Log.Debug($"Pedido '{createdOrder.OrderId}' criado no banco de dados - status: {createdOrder.Status}");
+                Log.Information($"Pedido '{createdOrder.OrderId}' criado no banco de dados - status: {createdOrder.Status}");
             }
             else
             {
                 existingOrder.Status = kiwifyOrder.OrderStatus;
                 existingOrder.UpdatedAt = DateTime.UtcNow;
                 var updatedOrder = await _repository.UpdateOrderAsync(existingOrder);
-                Log.Debug($"Pedido '{updatedOrder?.OrderId}' atualizado no banco de dados - status: {updatedOrder?.Status}");
+                Log.Information($"Pedido '{updatedOrder?.OrderId}' atualizado no banco de dados - status: {updatedOrder?.Status}");
             }
         }
     }

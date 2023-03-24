@@ -1,6 +1,7 @@
 ﻿using Kiwify.API.Services;
 using Kiwify.Core.Models;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -51,8 +52,8 @@ namespace Kiwify.API.Controllers
                 byte[] hash = hmac.ComputeHash(orderBytes);
                 string calculatedSignature = BitConverter.ToString(hash).Replace("-", "").ToLower();
 
-                Console.WriteLine($"signature: {signature}");
-                Console.WriteLine($"calculatedSignature: {calculatedSignature}");
+                Log.Debug($"signature: {signature}");
+                Log.Debug($"calculatedSignature: {calculatedSignature}");
                 return signature.Equals(calculatedSignature);
             }
         }

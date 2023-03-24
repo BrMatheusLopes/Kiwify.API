@@ -3,6 +3,5 @@
     public class KiwifyConfiguration
     {
         public string SecretToken { get; set; }
-
     }
 }

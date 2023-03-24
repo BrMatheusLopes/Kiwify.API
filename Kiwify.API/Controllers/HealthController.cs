@@ -9,8 +9,8 @@ namespace Kiwify.API.Controllers
         [HttpGet]
         public IActionResult Index([FromQuery(Name = "echo")] string? echo = null)
         {
-            return string.IsNullOrEmpty(echo) 
-                ? NoContent() 
+            return string.IsNullOrEmpty(echo)
+                ? NoContent()
                 : Ok(new { Response = echo });
         }
     }
