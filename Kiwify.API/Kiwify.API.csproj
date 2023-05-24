@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kiwify.Core\Kiwify.Core.csproj" />
+    <ProjectReference Include="..\PerfectPay.Library\PerfectPay.Library.csproj" />
   </ItemGroup>
 
 </Project>

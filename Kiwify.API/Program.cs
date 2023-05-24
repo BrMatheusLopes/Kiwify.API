@@ -32,6 +32,7 @@ var connectionString = Environment.GetEnvironmentVariable("postgreSQL") ?? build
 builder.Services.AddDbContext<DataContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<KiwifyPaymentHandler>();
+builder.Services.AddScoped<PerfectPayPaymentHandler>();
 builder.Services.AddControllers();
 
 if (builder.Environment.IsDevelopment())

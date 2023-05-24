@@ -10,7 +10,7 @@ namespace Kiwify.API.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;
-
+        private readonly string[] _approvedOrderArray = new string[] { "Approved", "Authorized", "Completed", "paid" };
         public OrderController(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
@@ -23,7 +23,8 @@ namespace Kiwify.API.Controllers
                 return BadRequest(new ErrorMessage("Endereço de e-mail inválido."));
 
             var result = await _orderRepository.GetAllOrdersByEmail(email.ToLower());
-            var order = result.FirstOrDefault(x => x.Status.Equals("paid"));
+            //var order = result.FirstOrDefault(x => x.Status.Equals("paid"));
+            var order = result.FirstOrDefault(x => _approvedOrderArray.Contains(x.Status));
 
             return order == null
                 ? BadRequest(new ErrorMessage($"Não foi encontrado nenhum pedido pago com esse endereço de e-mail."))

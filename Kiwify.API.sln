@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiwify.API", "Kiwify.API\Kiwify.API.csproj", "{8A55EDDC-9317-494C-9B14-60E7FE0FA825}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kiwify.API", "Kiwify.API\Kiwify.API.csproj", "{8A55EDDC-9317-494C-9B14-60E7FE0FA825}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiwify.Core", "Kiwify.Core\Kiwify.Core.csproj", "{A3CA4FAE-4285-43F3-B617-7E9B198DC536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kiwify.Core", "Kiwify.Core\Kiwify.Core.csproj", "{A3CA4FAE-4285-43F3-B617-7E9B198DC536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectPay.Library", "PerfectPay.Library\PerfectPay.Library.csproj", "{8AE23939-D3F2-4652-915B-BBE41C735BE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A3CA4FAE-4285-43F3-B617-7E9B198DC536}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3CA4FAE-4285-43F3-B617-7E9B198DC536}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3CA4FAE-4285-43F3-B617-7E9B198DC536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE23939-D3F2-4652-915B-BBE41C735BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE23939-D3F2-4652-915B-BBE41C735BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE23939-D3F2-4652-915B-BBE41C735BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE23939-D3F2-4652-915B-BBE41C735BE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
